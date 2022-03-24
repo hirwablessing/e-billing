@@ -1,21 +1,29 @@
 version: "3.8"
 
 services:
-    db:
-        build:
-            context: .
-            dockerfile: db_Dockerfile
-    api:
-        build:
-            context: backend
-            dockerfile: Dockerfile
-        ports:
-            - "8000:8000"
-        expose:
-            - 3000
-    web:
-        build:
-            context: frontend
-            dockerfile: Dockerfile
-        ports:
-            - "80:80"
+  db:
+    build:
+      context: .
+      dockerfile: db_Dockerfile
+  api:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    expose:
+      - 3000
+  web:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+  nginx:
+    image: "blessingartcretor/ngnix"
+    mem_limit: 128m
+    hostname: nginx
+    depends_on:
+      - frontend
+    ports:
+      - "80:80"

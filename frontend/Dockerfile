@@ -1,3 +1,4 @@
+#Import node
 FROM node:16-alpine
 
 #specifying the working directory
@@ -15,11 +16,13 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:1.15
+FROM nginx
 
-COPY /build/ /usr/share/nginx/html
+EXPOSE 8080
 
-EXPOSE 80
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=builder /app/build /usr/share/nginx/html
 
 # RUN npm run build 
 
