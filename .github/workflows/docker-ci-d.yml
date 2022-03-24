@@ -31,7 +31,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Docker build
         run: |
-          docker build . -t blessingartcreator/ebilling-image
+          docker build . -t blessingartcretor/ebilling-image
 
       - name: Docker push
         run: |
