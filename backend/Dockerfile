@@ -12,4 +12,5 @@ RUN npx prisma migrate dev
 
 EXPOSE 8000
 
-CMD [ "yarn", "dev" ]
+# RUN the built file
+CMD [ "node","dist/index.js" ]]
