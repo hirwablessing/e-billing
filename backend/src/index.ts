@@ -1,7 +1,7 @@
-import app from "./utils/app";
+// import app from "./utils/app";
 
-const server = app();
+// const server = app();
 
-server.listen(8000, () => {
-  console.log("Server started on port 8000");
-});
+// server.listen(8000, () => {
+console.log("Server started on port 8000");
+// });
